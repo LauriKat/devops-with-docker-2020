@@ -1,0 +1,2 @@
+docker build -t backex12 .
+docker run -d -p 8000:8000 --name backex12 backex12

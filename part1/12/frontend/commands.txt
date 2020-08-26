@@ -1,0 +1,2 @@
+docker build -t frontex12 .
+docker run -d -p 5000:5000 --name frontex12 frontex12
