@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+        frontend:
+                image: frontend
+                container_name: frontend_6   
+                ports:
+                        - 5000:5000
+        backend:
+                image: backend
+                container_name: backend_6
+                ports:
+                        - 8000:8000
+                environment:
+                        - REDIS=redis
+                        - DB_NAME=testDatabase
+                        - DB_USERNAME=admin
+                        - DB_PASSWORD=test12345!
+                        - DB_HOST=postgres
+                depends_on: 
+                        - postgres
+        redis:
+                container_name: redis_backend_6
+                image: redis
+        postgres:
+                image: postgres
+                environment:
+                        - POSTGRES_USER=admin
+                        - POSTGRES_PASSWORD=test12345!
+                        - POSTGRES_DB=testDatabase 
+                container_name: db_backend_6 
+                restart: unless-stopped
+

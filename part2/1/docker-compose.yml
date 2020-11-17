@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+
+        exercise2_1:
+                image: devopsdockeruh/first_volume_exercise
+                volumes:
+                        - type: bind
+                          source: ./logs.txt
+                          target: /usr/app/logs.txt
+                container_name: exercise2_1
